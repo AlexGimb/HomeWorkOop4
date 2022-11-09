@@ -1,8 +1,7 @@
 package Racing.Transport;
-
 import Racing.ValidationUtils;
 
-public class Transport implements Competing {
+public class Transport  implements Competing {
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -32,6 +31,7 @@ public class Transport implements Competing {
     public void endMovement() {
         System.out.println(getBrand() + " " + getModel() + " - Закончить движение");
     }
+
     @Override
     public void pitStop() {
         System.out.println(getBrand() + " " + getModel() + " заходит на пит-стоп!");
@@ -46,5 +46,10 @@ public class Transport implements Competing {
     public void maximumSpeed() {
         int maxSpeed = 80 + (int) ( Math.random() * 100 );
         System.out.printf("%s %s, максимальная скорость: %d км/ч \n",getBrand(),getModel(),maxSpeed);
+    }
+
+    @Override
+    public void printTypeAuto() {
+
     }
 }

@@ -1,12 +1,9 @@
 package Racing.Driver;
 
-import Racing.Transport.Bus;
-import Racing.Transport.Car;
 import Racing.Transport.Transport;
-import Racing.Transport.Truck;
 import Racing.ValidationUtils;
 
-public abstract class Driver <D extends Transport> implements Drivers {
+public abstract class Driver <D extends Transport> implements RaceDriver {
     private D transport;
     private final String name;
     private final String surname;

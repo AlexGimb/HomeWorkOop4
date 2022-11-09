@@ -1,6 +1,6 @@
 package Racing.Driver;
 
-public interface Drivers {
+public interface RaceDriver {
     void startMoving();
     void stop();
     void refuel();
