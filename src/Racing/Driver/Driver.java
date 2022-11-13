@@ -15,7 +15,7 @@ public abstract class Driver <D extends Transport> implements RaceDriver {
         this.name = ValidationUtils.Validation(name, "Черная");
         this.surname = ValidationUtils.Validation(surname, "Лошадка");
         this.middleName = ValidationUtils.Validation(middleName, " ");
-        this.driversLicense = driversLicense;
+        setDriversLicense(driversLicense);
         this.experience = experience;
         this.transport = transport;
     }
@@ -48,8 +48,11 @@ public abstract class Driver <D extends Transport> implements RaceDriver {
         return driversLicense;
     }
 
-    public void setDriversLicense(String driversLicense) {
-        this.driversLicense = ValidationUtils.Validation(driversLicense, "B");
+    public void setDriversLicense(String driversLicense)  {
+        if (driversLicense == null || driversLicense.isEmpty() || driversLicense.isBlank()) {
+            throw new IllegalArgumentException("Необходимо указать категорию прав");
+        }
+        this.driversLicense = driversLicense;
     }
 
     public int getExperience() {

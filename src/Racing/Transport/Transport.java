@@ -1,7 +1,7 @@
 package Racing.Transport;
 import Racing.ValidationUtils;
 
-public class Transport  implements Competing {
+public abstract class Transport  implements Competing {
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -51,5 +51,26 @@ public class Transport  implements Competing {
     @Override
     public void printTypeAuto() {
 
+    }
+    public  boolean diagnostics() {
+        return true;
+    }
+
+    public static void allDiagnostics(Transport... transports) {
+        for (Transport transport : transports) {
+            allDiagnosticsCheck(transport);
+        }
+    }
+
+    public static void allDiagnosticsCheck(Transport transport) {
+        try {
+            if (!transport.diagnostics()) {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
+            } else {
+                System.out.println("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " в диагностике не нуждается");
+            }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -11,6 +11,12 @@ public class Truck extends Transport{
     public void printTypeAuto() {
         System.out.printf("Автомобиль: %s %s, грузоподъемность: от %.1f до %.1f тонн \n",getBrand(),getModel(),weight.getFrom(),weight.getTo());
     }
+
+    @Override
+    public boolean diagnostics() {
+        return Math.random() > 0.5;
+    }
+
     public Weight getWeight() {
         return weight;
     }

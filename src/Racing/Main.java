@@ -3,6 +3,7 @@ package Racing;
 import Racing.Driver.*;
 import Racing.Transport.Bus;
 import Racing.Transport.Car;
+import Racing.Transport.Transport;
 import Racing.Transport.Truck;
 
 public class Main {
@@ -38,11 +39,22 @@ public class Main {
         System.out.println("------------------------------------------------------------------------------------------");
         ///////////////////////////////////////////Автобусы/////////////////////////////////////////////////////////////
         DriverСategoryB ivanov = new DriverСategoryB("Иванов", "Петр", "Алексеевич", "B", 10,vaz);
-        DriverСategoryС noname = new DriverСategoryС("", "", "", "С", 5, scania);
+        DriverСategoryС noname = new DriverСategoryС("", "", "", "C", 5, scania);
         DriverСategoryD filimonov = new DriverСategoryD("Филимонов", "Андрей", "Викторович", "D", 20, peugeot);
         ivanov.driverInformation();
         noname.driverInformation();
         filimonov.driverInformation();
         ivanov.refuel();
+        System.out.println("------------------------------------------------------------------------------------------");
+        ///////////////////////////////////////////Данные///////////////////////////////////////////////////////////////
+        boolean test = Date.validate("Login", "Login123", "Login123");
+        System.out.println("------------------------------------------------------------------------------------------");
+        ///////////////////////////////////////////Диагностика//////////////////////////////////////////////////////////
+        Transport.allDiagnostics(
+                lada, gaz, vaz, moscvich,
+                kamaz, volvo, scania, mercedes,
+                paz, ford, peugeot, fiat
+        );
+        System.out.println("------------------------------------------------------------------------------------------");
     }
 }

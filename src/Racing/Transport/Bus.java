@@ -9,8 +9,14 @@ public class Bus extends Transport{
     }
     @Override
     public void printTypeAuto() {
-        System.out.printf("Автомобиль: %s %s, вместимость: %.0f человек\n",getBrand(),getModel(),capacity.getTo());
+        System.out.printf("Автобус: %s %s, вместимость: %.0f человек\n",getBrand(),getModel(),capacity.getTo());
     }
+
+    @Override
+    public boolean diagnostics() {
+        return true;
+    }
+
     public Capacity getCapacity() {
         return capacity;
     }
