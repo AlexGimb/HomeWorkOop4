@@ -3,6 +3,8 @@ package Racing.Driver;
 import Racing.Transport.Transport;
 import Racing.ValidationUtils;
 
+import java.util.Objects;
+
 public abstract class Driver <D extends Transport> implements RaceDriver {
     private D transport;
     private final String name;
@@ -77,4 +79,24 @@ public abstract class Driver <D extends Transport> implements RaceDriver {
     public void refuel() {
         System.out.println("Заправить авто");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return experience == driver.experience && Objects.equals(transport, driver.transport) && Objects.equals(name, driver.name) && Objects.equals(surname, driver.surname) && Objects.equals(middleName, driver.middleName) && Objects.equals(driversLicense, driver.driversLicense);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(transport, name, surname, middleName, driversLicense, experience);
+    }
+
+    @Override
+    public String toString() {
+        return surname + " " + name + " " + middleName +
+                ", категория прав: " + driversLicense + ", стаж: " + experience + " лет" ;
+    }
 }
+
